@@ -1,0 +1,10 @@
+<div class="container" style="background-color:#EDEDED;">
+    <div class=" row ">
+        <span *ngFor="let User of UserList" >
+        <div (click)="Conversation(User.userId)" class="col-12  border border-primary rounded mb-1 btn">
+            <h5>{{User.name}}</h5>
+         <span>{{User.email}}</span>
+        </div>
+    </span>
+    </div>
+</div>
