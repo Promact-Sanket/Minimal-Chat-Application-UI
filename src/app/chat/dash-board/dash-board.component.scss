@@ -1,9 +1,11 @@
 .header{
     background-color:#0A3C4A;
+    display: flex;
+    padding: 10px 20px 10px 20px;
 }
 .spantext{
     color:whitesmoke;
     font-size:x-large;
-    font-style: italic;
-    text-align: center;
+    text-align: left;
+    padding-left: 30px;
 }

@@ -17,17 +17,10 @@ export interface ResLogin {
   }
 }
 
-export interface ResUserList {
+export interface ResUser {
   email: string;
   name: string;
   userId: string;
-}
-
-export interface ReqConHistory{
-  userId:string;
-  before?:Date;
-  count?:number;
-  sort?:string;
 }
 
 export interface ResConHistory{
@@ -36,6 +29,11 @@ export interface ResConHistory{
   reciverId:string;
   content:string;
   timeStamp:Date;
+}
+
+export interface ReqMessage{
+  reciverId:string;
+  content:string;
 }
 
 export class Registration {

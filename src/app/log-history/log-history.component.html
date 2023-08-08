@@ -1,0 +1,49 @@
+<div class="row">
+    <!-- <input id="timePicker"  [(ngModel)]="selectedTime" type="time"   (ngModelChange)="onTimeChange($event)"  /> -->
+    <div class="row col-md-5">
+        <div class="col-md-2">
+            <label class="form-label"> From:-</label>
+        </div>
+        <div class="col-md-10">
+            <input class="form-control" [(ngModel)]="selectedFromTime" type="datetime">
+        </div>
+    </div>
+    <div class="col-md-5 row">
+        <div class="col-md-2">
+            <label class="form-label"> To:-</label>
+        </div>
+        <div class="col-md-10">
+            <input class="form-control" [(ngModel)]="selectedToTime" type="datetime">
+        </div>
+    </div>
+    <div class="col-md-2 row">
+        <div class="col-md-6">
+        <button class="btn btn-warning"> Search </button>
+    </div>
+    </div>   
+</div>
+<br>
+
+
+<div>
+    <table class="table table-striped ">
+        <thead>
+            <th scope="col">Sr.No</th>
+            <th scope="col">IP</th>
+            <th scope="col">Method</th>
+            <th scope="col">Path</th>
+            <th scope="col">Request Body</th>
+            <th scope="col">Time Of Call</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let log of logHistory; let i=index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{log.ip}}</td>
+                <td>{{log.method}}</td>
+                <td>{{log.path}}</td>
+                <td>{{log.requestBody}}</td>
+                <td>{{log.timeOfCall}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

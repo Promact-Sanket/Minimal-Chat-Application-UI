@@ -1,0 +1,84 @@
+
+.UserHeader {
+    background-color: #e7f8eb;   
+    border: 2px solid;
+    border-color: #093004;
+    padding: 5px;
+    border-radius: 10px;
+}
+.sendmessage{
+    position: absolute;
+    bottom: -70px;
+    background-color: rgb(223, 255, 255);
+    left: 0;
+    right: 0;
+    width: 100%;
+    top: auto;
+    padding: 5px;
+}
+
+.history-style{
+    position: relative;
+}
+
+.send-box {
+    position: relative;
+}
+
+
+.send-box input {
+    position: relative;
+    width: 100%;
+    height: 45px;
+    padding: 0 12px;
+    border: 2px solid #40623c;
+}
+
+.send-box button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 150px;
+    height: 45px;  
+    background: #dddddd;
+    color: #0a3c4a;
+    text-transform: capitalize;
+    font-weight: 600;
+    border: 1px solid #626060;
+}
+
+.message-list {
+    height: 400px;
+    // overflow: auto;
+    overflow-y: auto;
+}
+
+.UserName{
+    color: #083946;
+    font-size: xx-large;
+    font-style: oblique;
+}
+
+.Sender {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: right;
+    background-color: #EDF9F5;
+    border: 2px solid;
+    border-color: #D3FAF0;
+    border-radius: 10px;
+}
+
+.reciver {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: left;
+    background-color: #edf9ed;
+    border: 2px solid;
+    border-color: #d4fad3;
+    border-radius: 10px;
+}

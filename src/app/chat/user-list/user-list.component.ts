@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ReqConHistory, ResConHistory, ResUserList } from 'src/app/model/interface.model';
+import { ResConHistory, ResUser } from 'src/app/model/interface.model';
 import { MinimalChatServiceService } from 'src/app/services/minimal-chat-service.service';
 
 @Component({
@@ -9,33 +9,27 @@ import { MinimalChatServiceService } from 'src/app/services/minimal-chat-service
 })
 export class UserListComponent implements OnInit {
 
-  UserList: ResUserList[] = [];
+  ResUserList: ResUser[] = [];
 
-  constructor(private _services: MinimalChatServiceService) { }
+  constructor(private _services: MinimalChatServiceService) {   }
 
   ngOnInit(): void {
-    this._services.getUserList().subscribe((res: ResUserList[]) => {
-      this.UserList = res,
-        console.log(res)
+    this.getUserList();
+  }
+
+
+  /**get user list from services */
+  getUserList() {
+    this._services.getUserList().subscribe((res: ResUser[]) => {
+      this.ResUserList = res
     },
       (err) => { console.warn(err) }
     );
   }
 
-  /** gets the conversation history with clicked UserID */
-  Conversation(oppUserId: string) {
-    const reqConHis: ReqConHistory = {
-      userId: oppUserId,
-      before:new Date(),
-      count:20,
-      sort:"asc"
-    };
-
-    this._services.getConHistory(reqConHis).subscribe((res:ResConHistory[])=>{
-      console.log(res)
-    },
-    (err)=>{ console.warn(err) }
-    );
+  /** get the conversation history and send to con-history component*/
+  Conversation(oppUser: ResUser) {
+   this._services.reciverUserDeatils.next(oppUser);
   }
 
 }

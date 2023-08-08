@@ -4,6 +4,8 @@ import { LogInComponent } from './user/log-in/log-in.component';
 import { RegisterComponent } from './user/register/register.component';
 import { UserListComponent } from './chat/user-list/user-list.component';
 import { DashBoardComponent } from './chat/dash-board/dash-board.component';
+import { LogHistoryComponent } from './log-history/log-history.component';
+
 
 const routes: Routes = [
   {
@@ -17,6 +19,10 @@ const routes: Routes = [
   {
     path: 'chat',   
     component:DashBoardComponent ,    
+  },
+  {
+    path: 'log',   
+    component:LogHistoryComponent ,    
   },
   {
     path: '',   
