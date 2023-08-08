@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ReqLogin, Registration, ResLogin, ResUser, ResConHistory, ReqMessage } from '../model/interface.model';
+import { ReqLogin, Registration, ResLogin, ResUser, ResConHistory, ReqMessage, ReqLog } from '../model/interface.model';
 import { Observable, Subject } from 'rxjs';
 
 @Injectable({
@@ -8,7 +8,7 @@ import { Observable, Subject } from 'rxjs';
 })
 export class MinimalChatServiceService {
 
-  reciverUserDeatils=new Subject<any>();
+  reciverUserDeatils = new Subject<any>();
 
   constructor(private http: HttpClient) { }
 
@@ -34,32 +34,28 @@ export class MinimalChatServiceService {
     return this.http.get<ResConHistory[]>(`${this.EnvirementUrl}Messages?userId=${userID}`, { headers });
   }
 
-  sendMessage(data:ReqMessage): Observable<ResConHistory>
-  {
+  sendMessage(data: ReqMessage): Observable<ResConHistory> {
     let headers = new HttpHeaders().
-    set("Authorization", `bearer ${localStorage.getItem('jwtToken')}`);
-    return this.http.post<ResConHistory>(`${this.EnvirementUrl}Messages`,data, { headers });
+      set("Authorization", `bearer ${localStorage.getItem('jwtToken')}`);
+    return this.http.post<ResConHistory>(`${this.EnvirementUrl}Messages`, data, { headers });
   }
 
-  editmessage(MessageId:string, content:string)
-  {
+  editmessage(MessageId: string, content: string) {
     let headers = new HttpHeaders().
-    set("Authorization", `bearer ${localStorage.getItem('jwtToken')}`);
-    let request= {content:content};
-    return this.http.put(`${this.EnvirementUrl}Messages/${MessageId}`,request, { headers });
+      set("Authorization", `bearer ${localStorage.getItem('jwtToken')}`);
+    let request = { content: content };
+    return this.http.put(`${this.EnvirementUrl}Messages/${MessageId}`, request, { headers });
   }
 
-  deleteMessage(MessageId:string)
-  {
+  deleteMessage(MessageId: string) {
     let headers = new HttpHeaders().
-    set("Authorization", `bearer ${localStorage.getItem('jwtToken')}`);
-return this.http.delete(`${this.EnvirementUrl}Messages/${MessageId}`, { headers });
+      set("Authorization", `bearer ${localStorage.getItem('jwtToken')}`);
+    return this.http.delete(`${this.EnvirementUrl}Messages/${MessageId}`, { headers });
   }
 
-  getLog()
- {
-  let headers = new HttpHeaders().
-  set("Authorization", `bearer ${localStorage.getItem('jwtToken')}`);
-  return this.http.get(`${this.EnvirementUrl}Log`,{headers});
- }
+  getLog(model: ReqLog) {
+    let headers = new HttpHeaders().
+      set("Authorization", `bearer ${localStorage.getItem('jwtToken')}`);
+    return this.http.get(`${this.EnvirementUrl}Log?EndTime=${model.EndTime}&StartTime=${model.StartTime}`, { headers });
+  }
 }

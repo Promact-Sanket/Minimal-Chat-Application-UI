@@ -29,11 +29,11 @@ export class LogInComponent implements OnInit {
     this._service.userLogIn(this.loginForm.value).subscribe((result:ResLogin) => {
       localStorage.setItem('jwtToken', result.token),
       localStorage.setItem('CurrentUserID', result.profile.userId),
+      this._toaster.success("LogIn sucessfully"),
       this._router.navigate(['chat'])
        },
       (error) => { this._toaster.error(error.error), console.warn(error) }
     );
-    // this._route.navigate(['list']);
   }
 
 }

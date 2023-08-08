@@ -10,10 +10,9 @@
                     <div *ngFor="let item of ConHistory; let i =index" class="mt-2">
                         <div
                             *ngIf="item.senderId==CurrentUser && item.reciverId==reciverUserDetils.userId ; else elseBlockmessage">
-                            <div class="d-flex justify-content-end" (contextmenu)="onMessageRightClick($event,item)">
-                                <div class="Sender">
-                                    <div
-                                        *ngIf="isMessageEdit==false || editMessageId!=item.messageId  ; else elseBlockInline">
+                            <div class="d-flex justify-content-end">
+                                <div class="Sender" (contextmenu)="onMessageRightClick($event,item)">
+                                    <div *ngIf="isMessageEdit==false || editMessageId!=item.messageId  ; else elseBlockInline">
                                         <span style=" font-weight: bold; font-size: medium;">{{item.content}}</span><br>
                                         <span style="font-size: xx-small;"> {{item.timeStamp}}</span>
                                     </div>

@@ -108,6 +108,7 @@ const userId=this.reciverUserDetils.userId;
       
   }
 
+  // get the delete confirmation and delete the selected message 
   deleteMessage(message: ResConHistory)
   {
     if (confirm("Are you sure you want to delete this message" )) {

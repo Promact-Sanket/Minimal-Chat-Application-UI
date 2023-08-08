@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  /**On Submiting the registration form */
+  /**On Submiting the registration form save user details*/
   onSubmit() {
     this._service.userRegistration(this.registraionForm.value).subscribe(
       (result) => {
